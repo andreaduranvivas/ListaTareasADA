@@ -1,0 +1,21 @@
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 300px; /* Adjust width as needed */
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    flex-grow: 1; /* Allow input to expand */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

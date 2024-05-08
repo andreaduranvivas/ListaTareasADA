@@ -1,0 +1,20 @@
+.task-actions {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.task-actions input {
+    flex-grow: 1; /* Allow input to expand */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.task-actions button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px; /* Add spacing between buttons */
+}

@@ -1,0 +1,38 @@
+.task-list {
+    width: 500px; /* Adjust width as needed */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.task-list input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-list .completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-list button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px; /* Add spacing between buttons */
+}
+
+.task-list .edit-button {
+    background-color: #f0f0f0; /* Example color for Edit button */
+}
+
+.task-list .delete-button {
+    background-color: #ff0000; /* Example color for Delete button */
+}
