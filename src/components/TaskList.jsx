@@ -2,11 +2,11 @@ import Task from './Task';
 import './TaskList.css';
 
 const TaskList = (props) => {
-    const { tasks, onTaskToggle, onTaskDelete  } = props;
+    const { tasks, onTaskToggle, onTaskDelete, onEditTask  } = props;
     return (
         <ul>
             {tasks.map((task) => (
-                <Task key={task.id} {...task} onTaskToggle={onTaskToggle} onTaskDelete={onTaskDelete} />
+                <Task key={task.id} {...task} onTaskToggle={onTaskToggle} onTaskDelete={onTaskDelete} onEditTask={onEditTask} />
             ))}
         </ul>
     );

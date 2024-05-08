@@ -33,9 +33,13 @@ const App = () => {
         setTasks(tasks.filter((task) => task.id !== id));
     };
 
-    const handleTaskEdit = (id) => {
-        // Implementar la lógica para editar la tarea
-        console.log(`Editing task with ID: ${id}`);
+    const handleTaskEdit = (id, updatedTitle, updatedDescription) => {
+        setTasks(tasks.map((task) => {
+            if (task.id === id) {
+                return { ...task, title: updatedTitle, description: updatedDescription };
+            }
+            return task;
+        }));
     };
 
     const handleAddTask = (title) => {
@@ -73,7 +77,7 @@ const App = () => {
                 <button onClick={handleAddTask}>Add Task</button>
             </div>
             <TaskList tasks={filteredTasks} onTaskToggle={handleTaskToggle} onTaskDelete={handleTaskDelete}
-                      onEdit={handleTaskEdit}/>
+                      onEditTask={handleTaskEdit}/>
             <div className="clear-all-button">
                 <button onClick={handleClearAllTasks}>Clear All</button>
             </div>
