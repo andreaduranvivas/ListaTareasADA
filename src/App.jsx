@@ -6,11 +6,20 @@ import SearchBar from './components/SearchBar';
 import './App.css';
 
 const App = () => {
-    const { tasks, createTask, deleteTask, updateTask, toggleTask, clearAllTasks, newTaskTitle, setNewTaskTitle } = useTaskManager(); // Usamos el hook
+    const { tasks, createTask, deleteTask, updateTask, toggleTask, clearAllTasks,
+        newTaskTitle, setNewTaskTitle, newTaskDescription, setNewTaskDescription } = useTaskManager(); // Usamos el hook
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearch = (searchTerm) => {
         setSearchTerm(searchTerm);
+    };
+
+    const handleNewTaskDescriptionChange = (event) => {
+        setNewTaskDescription(event.target.value);
+    };
+
+    const handleCreateTask = () => {
+        createTask(newTaskTitle, newTaskDescription);
     };
 
 
@@ -31,7 +40,13 @@ const App = () => {
                     value={newTaskTitle}
                     onChange={handleNewTaskTitleChange}
                 />
-                <button onClick={createTask}>Add Task</button>
+                <input
+                    type="text"
+                    placeholder="Add task description..."
+                    value={newTaskDescription}
+                    onChange={handleNewTaskDescriptionChange}
+                />
+                <button onClick={handleCreateTask}>Add Task</button>
             </div>
             <TaskList tasks={filteredTasks} onTaskToggle={toggleTask} onTaskDelete={deleteTask}
                       onEditTask={updateTask}/>
