@@ -2,18 +2,20 @@ import { useState, useEffect } from 'react';
 
 const useTaskManager = () => {
     const [tasks, setTasks] = useState([]);
-    const [newTaskTitle, setNewTaskTitle] = useState('');
     const storedTasks = localStorage.getItem('tasks');
+    const [newTaskTitle, setNewTaskTitle] = useState('');
+    const [newTaskDescription, setNewTaskDescription] = useState('');
 
     // Función para crear tareas
-    const createTask = (title) => {
-        if (newTaskTitle.trim()) {
-            const newTask = { id: tasks.length + 1, title: newTaskTitle, completed: false };
+    const createTask = (title, description) => {
+        if (newTaskTitle.trim().length >= 3) {
+            const newTask = { id: tasks.length + 1, title: newTaskTitle, description: newTaskDescription, completed: false };
             setTasks([...tasks, newTask]);
             localStorage.setItem('tasks', JSON.stringify([...tasks, newTask]));
             setNewTaskTitle('');
+            setNewTaskDescription('');
         } else {
-            alert('Please enter a task title.');
+            alert('Please enter a task title with at least 3 characters.');
         }
     };
 
@@ -69,7 +71,7 @@ const useTaskManager = () => {
         }
     };
 
-    return { tasks, createTask, deleteTask, updateTask, toggleTask, clearAllTasks, newTaskTitle, setNewTaskTitle };
+    return { tasks, createTask, deleteTask, updateTask, toggleTask, clearAllTasks, newTaskTitle, setNewTaskTitle, newTaskDescription, setNewTaskDescription };
 };
 
 export { useTaskManager };
