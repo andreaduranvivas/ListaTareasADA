@@ -1,5 +1,5 @@
 import Task from './Task';
-import './TaskList.css';
+import './styles/TaskList.css';
 
 const TaskList = (props) => {
     const { tasks, onTaskToggle, onTaskDelete, onEditTask  } = props;
