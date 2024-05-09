@@ -1,4 +1,4 @@
-import './Task.css';
+import './styles/Task.css';
 import {useState} from 'react';
 
 const Task = (props) => {
